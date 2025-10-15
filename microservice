@@ -1,0 +1,9 @@
+graph TD
+    Frontend -->|REST API| UserService
+    Frontend -->|REST API| TaskService
+    UserService -->|REST API| AuthService
+    TaskService -->|REST API| CategoriesService
+    TaskService -->|Events| Kafka
+    NotificationsService -->|Subscribe to Kafka| Kafka
+    StatisticsService -->|Query| TaskService
+    StatisticsService -->|Query| UserService
